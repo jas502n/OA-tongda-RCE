@@ -31,6 +31,10 @@ fclose($fp);
 ?>
 ```
 
+## php Zend 解码
+
+http://dezend.qiling.org/free.html
+
 ## 参考链接
 
 http://blog.fuzz.pub/2020/03/17/%E9%80%9A%E8%BE%BEoa%20RCE%20%E5%88%86%E6%9E%90/
