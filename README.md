@@ -105,6 +105,9 @@ if (!isset($_SESSION['LOGIN_USER_ID']) || $_SESSION['LOGIN_USER_ID'] == '' || !i
 ```
 /ispirit/im/upload.php
 /mac/gateway.php
+
+C:\MYOA>dir /s /b gateway.php
+C:\MYOA\webroot\mac\gateway.php
 ```
 
 ## 参考链接
