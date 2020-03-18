@@ -91,6 +91,22 @@ if (!isset($_SESSION['LOGIN_USER_ID']) || $_SESSION['LOGIN_USER_ID'] == '' || !i
 }
 ```
 
+## 版本路径
+有些版本gateway.php路径不同
+
+例如2013：
+
+```
+/ispirit/im/upload.php
+/ispirit/interface/gateway.php
+```
+例如2017：
+
+```
+/ispirit/im/upload.php
+/mac/gateway.php
+```
+
 ## 参考链接
 
 http://blog.fuzz.pub/2020/03/17/%E9%80%9A%E8%BE%BEoa%20RCE%20%E5%88%86%E6%9E%90/
