@@ -35,6 +35,64 @@ fclose($fp);
 
 http://dezend.qiling.org/free.html
 
+## 补丁修复 /ispirit/im/upload.php
+
+原
+```
+<?php
+
+set_time_limit(0);
+$P = $_POST['P'];
+if (isset($P) || $P != '') {
+    ob_start();
+    include_once 'inc/session.php';
+    session_id($P);
+    session_start();
+    session_write_close();
+} else {
+    include_once './auth.php';
+}
+```
+
+删掉了else判断，直接包含/auth.php
+```
+<?
+
+//lp 2012/11/29 1:26:01 兼容客户端提交数据时无session的情况
+if(isset($P) || $P!="")
+{
+   ob_start();
+   include_once("inc/session.php");
+   session_id($P);
+   session_start();
+   session_write_close();
+}
+
+include_once("./auth.php");
+```
+
+## auth.php
+
+```
+<?php
+
+include_once 'inc/session.php';
+session_start();
+session_write_close();
+include_once 'inc/conn.php';
+include_once 'inc/utility.php';
+ob_start();
+if (!isset($_SESSION['LOGIN_USER_ID']) || $_SESSION['LOGIN_USER_ID'] == '' || !isset($_SESSION['LOGIN_UID']) || $_SESSION['LOGIN_UID'] == '') {
+    sleep(1);
+    if (!isset($_SESSION['LOGIN_USER_ID']) || $_SESSION['LOGIN_USER_ID'] == '' || !isset($_SESSION['LOGIN_UID']) || $_SESSION['LOGIN_UID'] == '') {
+        echo '-ERR ' . _('用户未登陆');
+        exit;
+    }
+}
+```
+
 ## 参考链接
 
 http://blog.fuzz.pub/2020/03/17/%E9%80%9A%E8%BE%BEoa%20RCE%20%E5%88%86%E6%9E%90/
+
+http://cdndown.tongda2000.com/oasp/2019/2020_A1.rar
