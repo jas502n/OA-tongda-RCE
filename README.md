@@ -2,6 +2,10 @@
 
 ![](tongda.gif)
 
+## 后台Getshell
+
+![](./Auth-Getshell.gif)
+
 ## 无需身份认证
 
 1. 任意文件上传漏洞 /ispirit/im/upload.php
